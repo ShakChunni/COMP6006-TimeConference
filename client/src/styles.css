@@ -1,0 +1,26 @@
+body {
+  background: #f4f6f8;
+}
+
+.session-card {
+  border: 1px solid #dde3ea;
+}
+
+.chat-card {
+  min-height: 520px;
+}
+
+.chat-messages {
+  height: 390px;
+  overflow-y: auto;
+  background: #ffffff;
+}
+
+.chat-message {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #edf0f3;
+}
+
+.navbar .active {
+  font-weight: 600;
+}
