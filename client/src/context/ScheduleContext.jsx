@@ -5,8 +5,14 @@ const storageKey = 'conference-connect-schedule';
 
 export function ScheduleProvider({ children }) {
   const [scheduleIds, setScheduleIds] = useState(() => {
-    const saved = localStorage.getItem(storageKey);
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem(storageKey);
+      const parsed = saved ? JSON.parse(saved) : [];
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      localStorage.removeItem(storageKey);
+      return [];
+    }
   });
 
   useEffect(() => {

@@ -73,6 +73,15 @@ function requireAuth(req, res, next) {
   return res.status(401).json({ message: 'Authentication required' });
 }
 
+app.get('/', (req, res) => {
+  res.json({
+    name: 'Conference Connect API',
+    frontend: clientUrl,
+    login: `${clientUrl}/login`,
+    status: 'running'
+  });
+});
+
 app.get('/auth/linkedin', passport.authenticate('linkedin'));
 
 app.get('/auth/linkedin/callback',
